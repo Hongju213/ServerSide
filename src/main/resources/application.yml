@@ -1,0 +1,62 @@
+spring: 
+  profiles:
+    active:
+    - local
+
+---
+
+#local 정보  
+#ENC 암호화 적용
+
+spring: 
+  profiles: local
+  datasource:
+   driverClassName: org.mariadb.jdbc.Driver
+   url: jdbc:mariadb://localhost:3307/PCtracking
+   username: skV355wBFnpTaDQdA2mcWB5tIYvG8bQI
+   password: xNlcC/9G6IonPuVlHTH0ez3rnpsKQZ54
+   
+---
+#서버포트 설정
+server:
+  port: 8085
+
+#mariadb 정보  
+
+spring: 
+  profiles: mariadb
+  datasource:
+   driverClassName: org.mariadb.jdbc.Driver
+   url: jdbc:mariadb://192.168.10.230:3306/PCtracking
+   username: skV355wBFnpTaDQdA2mcWB5tIYvG8bQI
+   password: xNlcC/9G6IonPuVlHTH0ez3rnpsKQZ54
+   
+---
+#서버포트 설정
+server:
+  port: 8085
+
+#mysql 정보
+      
+spring: 
+  profiles: mysql
+  datasource:
+   driverClassName: com.mysql.jdbc.Driver
+   url: jdbc:mysql://127.0.0.1:3306/boarddb?serverTimezone=UTC
+   username: Hong
+   password: kimids1@
+
+---  
+
+#Log 설정   
+logging:
+  path: /ServerSideLog/ServerSide.log
+  file: /ServerSideLog/ServerSide.log
+  pattern:
+    console: "%d [%-5level] %logger : %msg%n"
+    file: "%d [%-5level] [%thread] %logger : %msg%n"
+    level: ERROR
+  level:
+    org.springframework.web: DEBUG
+    guru.springframework.controllers: DEBUG
+    org.hibernate: DEBUG

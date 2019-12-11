@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserDAO">
+
+	<resultMap id="userResult" type="com.kimi.boot.user.UserVO">
+		<id property="id" column="ID" />
+		<result property="password" column="PASSWORD" />
+		<result property="name" column="NAME" />
+		<result property="role" column="ROLE" />
+	</resultMap>
+
+	<select id="getUser" resultType="com.kimi.boot.user.UserVO">
+		SELECT *
+		FROM users
+		WHERE ID = #{id} AND PASSWORD= #{password}
+	</select>
+	
+	<insert id="insertUser" parameterType="com.kimi.boot.user.UserVO">
+	INSERT INTO users(ID, PASSWORD, NAME, ROLE, GENDER, BIRTH)
+	VALUES(#{id}, #{password}, #{name}, '사용자', #{gender}, str_to_date(#{birth}, '%Y-%m-%d'))
+	</insert>
+	
+	<insert id="insertUser2" parameterType="com.kimi.boot.user.UserVO">
+	INSERT INTO users
+				(id,
+				password,
+				name,
+				role,
+				gender,
+				birth)
+			VALUES(NULL, #{password}, #{name}, '사용자', #{gender}, str_to_date(#{birth}, '%Y-%m-%d'))
+	</insert>
+	
+</mapper>

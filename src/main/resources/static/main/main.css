@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* css style test 2019-11-01 */
+.form {
+	background-color: #c0c0c0;
+	width: 400px;
+	height: 50px;
+	border-radius: 7px;
+	padding: 20px;
+	}
+
+h1 { 
+	color:#408080; 
+	}
+	
+h3 { 
+	color:#000080; 
+	}
+
+table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+tr {
+	color:#004040; 
+}
+th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
